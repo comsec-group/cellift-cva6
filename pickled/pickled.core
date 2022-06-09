@@ -1,0 +1,44 @@
+CAPI=2:
+# Copyright lowRISC contributors.
+# Licensed under the Apache License, Version 2.0, see LICENSE for details.
+# SPDX-License-Identifier: Apache-2.0
+name: "::pickled:0.1"
+description: "Run pickled SV Ariane"
+
+filesets:
+  files_cells:
+    files:
+      - build/pickled.sv
+    file_type: systemVerilogSource
+
+  files_dv:
+    files:
+      - tb.h : {is_include_file: true}
+      - tb.cc
+    file_type: cppSource
+
+targets:
+  default:
+    default_tool: verilator
+    filesets:
+      - files_cells
+      - files_dv
+    toplevel: ariane
+    tools:
+      verilator:
+        mode: cc
+        verilator_options:
+          - '--trace'
+          - '--trace-fst' # this requires -DVM_TRACE_FMT_FST in CFLAGS below!
+          - '--trace-structs'
+          - '--trace-params'
+          - '--trace-max-array 1024'
+          - '-CFLAGS "-std=c++11 -Wall -DIS_VANILLA -DVM_TRACE_FMT_FST -DTOPLEVEL_NAME=ariane -g -O0"'
+          - '-LDFLAGS "-pthread -lutil"'
+          - "-Wall"
+          - "-Wno-PINCONNECTEMPTY"
+          - "-Wno-fatal"
+          - "-Wno-BLKANDNBLK"
+          - "-Wno-BLKANDNBLK"
+
+          - "-DVERILATOR -DSYNTHESIS"

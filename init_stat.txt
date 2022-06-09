@@ -1,0 +1,84 @@
+Before proc:
+
+    Number of wires:             111486
+    Number of wire bits:         5674276
+    Number of public wires:       27978
+    Number of public wire bits:  920230
+    Number of memories:               0
+    Number of memory bits:            0
+    Number of processes:           3453
+    Number of cells:              34962
+    $add                         1433
+    $and                         7392
+    $eq                          3373
+    $ge                           264
+    $gt                             9
+    $le                           231
+    $logic_and                   2099
+    $logic_not                    561
+    $logic_or                     350
+    $lt                            80
+    $mul                          542
+    $mux                         4996
+    $ne                           170
+    $neg                            9
+    $not                         3974
+    $or                          6605
+    $pos                           65
+    $reduce_and                     6
+    $reduce_bool                    6
+    $reduce_or                    231
+    $shift                          2
+    $shiftx                       518
+    $shl                          703
+    $shr                          798
+    $sshl                           1
+    $sshr                           2
+    $sub                          497
+    $xor                           38
+    unread                          7
+
+
+After proc:
+
+    Number of wires:             916949
+    Number of wire bits:         11274353
+    Number of public wires:       27978
+    Number of public wire bits:  920230
+    Number of memories:               0
+    Number of memory bits:            0
+    Number of processes:              0
+    Number of cells:             518819
+    $add                          921
+    $adff                         506
+    $and                         5038
+    $dff                        10063
+    $dlatch                       219
+    $eq                         87626
+    $ge                           264
+    $gt                             9
+    $le                           231
+    $logic_and                   1501
+    $logic_not                   1528
+    $logic_or                     331
+    $lt                            76
+    $mul                          542
+    $mux                       399950
+    $ne                            95
+    $neg                            9
+    $not                         3372
+    $or                          4433
+    $pmux                         442
+    $pos                           58
+    $reduce_and                     6
+    $reduce_bool                   77
+    $reduce_or                    617
+    $shift                          2
+    $shiftx                       262
+    $shl                          341
+    $shr                           14
+    $sshl                           1
+    $sshr                           2
+    $sub                          241
+    $xor                           35
+    unread                          7

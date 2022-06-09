@@ -1,0 +1,8 @@
+{
+    "bootrom_elf": "",
+    "lead_cycles": 256,
+    "toplevel": "ariane_tiny_soc",
+    "trace_top": "ariane_tiny_soc.i_ariane_mem_top",
+    "verilatorprefix": "cva6",
+    "memorywordsize": 64
+}

@@ -1,0 +1,8 @@
+generated/
+logs
+fusesoc.conf
+traces
+saves
+statistics
+result.txt
+modelsim
