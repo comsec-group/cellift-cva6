@@ -35,7 +35,10 @@ generated/bender.sources: | generated
 # 2. Pickle the source code.
 #
 
-generated/ariane_pickled.sv: generated/bender.sources
+generated/ariane_pickled.sv: generated/ariane_pickled_prefilter.sv
+	grep -v "module_name: " $< | grep -v "Global package import in" > $@
+
+generated/ariane_pickled_prefilter.sv: generated/bender.sources
 	morty -f $< -DVERILATOR -DSYNTHESIS -DARIANE_SMALLER_CACHES > $@
 	touch $@.log
 
@@ -51,6 +54,10 @@ generated/sv2v_out.v: generated/ariane_pickled.sv
 	sed -i 's/assign (pull0, pull1)/assign/g'     $@
 # Add newline in the end of the file because sv2v does not.
 	echo  >> $@
+
+# List the modules
+generated/modules_list.log: $(CELLIFT_YS)/list_modules.ys.tcl generated/sv2v_out.v
+	VERILOG_INPUT=$(word 2,$^) TOP_MODULE=$(TOP_MODULE) $(CELLIFT_META_ROOT)/resourcewrapper $(RESOURCEWRAPPER_TAG) $* instr yosys -c $< -l $@.log
 
 #
 # 4. Instrument using Yosys.
