@@ -107,7 +107,7 @@ sources:
     - src/cache_subsystem/wt_dcache.sv
     - src/clint/axi_lite_interface.sv
     - src/clint/clint.sv
-    - fpga/src/axi2apb/src/axi2apb_wrap.sv
+    # - fpga/src/axi2apb/src/axi2apb_wrap.sv
     - fpga/src/axi2apb/src/axi2apb.sv
     - fpga/src/axi2apb/src/axi2apb_64_32.sv
     - fpga/src/axi_slice/src/axi_w_buffer.sv
